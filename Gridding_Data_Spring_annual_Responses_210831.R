@@ -28,7 +28,7 @@ TS<-read.csv("Annual_T_S_Properties.csv", header=FALSE)
 TS_2<-read.csv("Annual_T_S_Properties_2014_2016.csv", header=FALSE)
 TS_Full<-rbind(TS, TS_2)
 colnames(TS_Full)<-c("Year","Lon","Lat","SST","SSS","BT","BS")
-#Grid the data, do this by 0.05, and then agaoin by 0.25
+#Grid the data, do this by 0.01
 Gridded_TS<-TS_Full %>% 
   mutate(binlon = cut(Lon, seq(from = min(-75.5), to = max(-65), by = .1), include.lowest = T, right = F, dig.lab=4),
          binlat = cut(Lat, seq(from = min(36.5), to = max(44.5), by = .1), include.lowest = T, right = F, dig.lab=4)) %>% 
